@@ -15,9 +15,9 @@ function AddTodoForm({ onAddTodo }) {
 
     return (
         <form onSubmit={addTodoHandler}>
-            <label htmlFor="add-todo">Todo:&nbsp;</label>
+            <p>Add new todos via the input field:</p>
             <input type="text" value={inputTodo} onChange={inputChangeHandler}/>
-            <button type="submit">Add</button>
+            <button type="submit">Add Todo</button>
         </form>
     );
 }

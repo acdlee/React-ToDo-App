@@ -21,23 +21,44 @@ const INITIAL_DATA = [
   },
 ];
 
+// const newTodoObj = {
+//   id: todoData[todoData.length - 1].id + 1, // Increment off the last item in 'todoData'
+//   text: newTodo,
+//   isCompleted: false,
+//   style: {},
+//   edit: false,
+// };
+
+// const crossStyle = {
+//   "text-decoration": "line-through",
+// }
+
 function App() {
   const [todoData, setTodoData] = useState(INITIAL_DATA);
 
-  function updateTodoData(newTodo) {
+  /* Adds a new todo to state data */
+  function addTodo(newTodo) {
     // Create the new todo object
     const newTodoObj = {
       id: todoData[todoData.length - 1].id + 1, // Increment off the last item in 'todoData'
       text: newTodo,
       isCompleted: false,
+      style: {},
+      edit: false,
     };
 
     setTodoData(todoData.concat(newTodoObj));
   }
 
+  /* Toggles the line-through CSS property for a given todo */
+  function toggleStrike() {
+
+  }
+
   return (
     <>
-      <AddTodoForm onAddTodo={updateTodoData} />
+      <h2>Todo App</h2>
+      <AddTodoForm onAddTodo={addTodo} />
       <TodoList todoData={todoData} />
     </>
   )

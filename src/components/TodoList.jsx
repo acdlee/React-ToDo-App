@@ -1,12 +1,12 @@
 import TodoItem from "./todo-items/TodoItem";
 
-function TodoList({ todoData, onToggle }) {
+function TodoList({ todoData, onToggle, onDelete }) {
     function handleCheckboxClick(index) {
         onToggle(index);
     }
 
     function handleDeleteClick(index) {
-        console.log(index);
+        onDelete(index);
     }
 
     // console.log(todoData);

@@ -48,13 +48,21 @@ function App() {
     )));
   }
 
+  /* Removes the todo with id 'index' from state data */
+  function deleteTodo(index) {
+    setTodoData(todoData.filter((todo) => (
+      todo.id != index         // Filter (remove) target todo
+    )));
+  }
+
   return (
     <>
       <h2>Todo App</h2>
       <AddTodoForm onAddTodo={addTodo} />
       <TodoList 
         todoData={todoData} 
-        onToggle={toggleStrike} />
+        onToggle={toggleStrike} 
+        onDelete={deleteTodo} />
     </>
   )
 }

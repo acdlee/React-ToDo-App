@@ -55,6 +55,19 @@ function App() {
     )));
   }
 
+  function toggleEdit(index) {
+    setTodoData(todoData.map((todo) => (
+      todo.id == index ? {...todo, edit: !todo.edit} : todo // Toggle target todo's "edit" property
+    )));
+  }
+
+  function updateTodo(index, updateText) {
+    // Update todo 
+    setTodoData(todoData.map((todo) => (
+      todo.id == index ? {...todo, text: updateText, edit: false} : todo   // Update target todo's "text" property; toggle "edit" to leave edit view
+    )));
+  }
+
   return (
     <>
       <h2>Todo App</h2>
@@ -62,7 +75,9 @@ function App() {
       <TodoList 
         todoData={todoData} 
         onToggle={toggleStrike} 
-        onDelete={deleteTodo} />
+        onDelete={deleteTodo} 
+        onEdit={toggleEdit} 
+        onUpdate={updateTodo} />
     </>
   )
 }

@@ -1,12 +1,16 @@
 /*
     Default Todo list item.
 */
-function TodoItem({ todoIndex, text, style, onCheckboxClick }) {
+const CROSSSTYLE = {
+    "textDecoration": "line-through",
+}
+
+function TodoItem({ todoIndex, text, isCompleted, onCheckboxClick, onDeleteClick }) {
     return (
-        <li style={style}>
+        <li style={isCompleted ? CROSSSTYLE : {}}>
             <input type="checkbox" onClick={() => onCheckboxClick(todoIndex)} />
             {text}
-            <button>X</button>
+            <button onClick={() => onDeleteClick(todoIndex)}>X</button>
             <button>Edit</button>
         </li>
     );

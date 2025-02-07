@@ -1,9 +1,9 @@
 /*
     Default Todo list item.
 */
-function TodoItem({ todoIndex, text, onCheckboxClick }) {
+function TodoItem({ todoIndex, text, style, onCheckboxClick }) {
     return (
-        <li>
+        <li style={style}>
             <input type="checkbox" onClick={() => onCheckboxClick(todoIndex)} />
             {text}
             <button>X</button>

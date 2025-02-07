@@ -1,15 +1,16 @@
 import TodoItem from "./todo-items/TodoItem";
 
-function TodoList({ todoData }) {
+function TodoList({ todoData, onToggle }) {
     function handleCheckboxClick(index) {
-        console.log(index);
+        onToggle(index);
     }
 
+    // console.log(todoData);
     return (
         <ul>
             {todoData.map((todo) => {
-                const todoItemConfigs = {todoIndex: todo.id, text: todo.text, onCheckboxClick: handleCheckboxClick};
-                
+                const todoItemConfigs = {todoIndex: todo.id, text: todo.text,  style: todo.style, onCheckboxClick: handleCheckboxClick};
+
                 return <TodoItem key={todo.id} {...todoItemConfigs}/>
             })}
         </ul>  
